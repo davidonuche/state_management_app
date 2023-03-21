@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:state_management_app/providers/text_label_data.dart';
 
 class Screen2 extends StatefulWidget {
-
-  final Function(String) onTextLabelChanged;
-  const Screen2({required this.onTextLabelChanged, super.key});
+  const Screen2({super.key});
 
   @override
   State<Screen2> createState() => _Screen2State();
 }
 
 class _Screen2State extends State<Screen2> {
-
+  // String textValue = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,9 @@ class _Screen2State extends State<Screen2> {
         child: Padding(
           padding: const EdgeInsets.all(18.0),
           child: TextField(
-            onChanged: widget.onTextLabelChanged,
+            onChanged: (value) {
+              context.read<TextLabelData>().changeTextLabel(value);
+            },
           ),
         ),
       ),
