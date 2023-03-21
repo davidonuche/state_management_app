@@ -36,12 +36,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.watch<TextLabelData>().textLabel),
+        elevation: 0,
+        title: Center(child: Text(context.watch<TextLabelData>().textLabel)),
       ),
       body: Center(
         child: Text(
